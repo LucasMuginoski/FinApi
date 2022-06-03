@@ -1,4 +1,4 @@
-FinApi - Financeia
+FinApi - Financeira
 <hr>
 ##Requisitos: <br><br>
 
