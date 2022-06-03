@@ -1,7 +1,4 @@
-const { response } = require("express");
 const express = require("express");
-const { acceptsEncodings } = require("express/lib/request");
-const { request } = require("http");
 const { v4: uuidv4 } = require("uuid") 
 
 
@@ -127,6 +124,13 @@ app.put("/account", verifyIfExistsAccountCpf, (request, response)=> {
 app.get("/account", verifyIfExistsAccountCpf, (request, response)=>{
     const { customer } = request;
     return response.json(customer);
-})
+});
+
+app.delete("/account", verifyIfExistsAccountCpf, (request, response)=>{
+    const { customer } = request;
+    
+    customers.splice(customer, 1);
+    return response.status(200).json(customers);
+});
 
 app.listen(3333);
